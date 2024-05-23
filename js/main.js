@@ -1,4 +1,2 @@
 import { mockPhotos } from './mock-photos-generator.js';
-console.log(mockPhotos);
-
-
+window.console.log (mockPhotos);

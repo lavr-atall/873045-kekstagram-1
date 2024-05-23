@@ -34,5 +34,5 @@ function createRandomFromRangeGenerator(min, max) {
 const generatePhotoIdAndUrl = createRandomFromRangeGenerator(1, 25);
 
 
-export { getRandomDigits, getRandomInteger, generatePhotoIdAndUrl }
+export { getRandomDigits, getRandomInteger, generatePhotoIdAndUrl };
 
