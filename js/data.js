@@ -27,4 +27,4 @@ const photoDescriprion =
     'Восход солнца в горах'
   ];
 
-export { userNames, commentsMessage, photoDescriprion }
+export { userNames, commentsMessage, photoDescriprion };
