@@ -1,4 +1,4 @@
-const photoParamsArray = [];
+const mockPhotos = [];
 
 const userNames =
   [
@@ -71,16 +71,22 @@ for (let i = 0; i < 15; i++) {
     id: idAndUrl,
     url: `photos/${idAndUrl}.jpg`,
     description: photoDescriprion[getRandomDigits(1, photoDescriprion.length - 1)],
-    likes: getRandomDigits(1, 50)
+    likes: getRandomDigits(1, 50),
+    comments: [
+      {
+        id: getRandomInteger(1, 25),
+        avatar: `img/avatar-${getRandomDigits(1, 6)}.svg`,
+        message: commentsMessage[getRandomDigits(0, commentsMessage.length - 1)],
+        name: userNames[getRandomDigits(0, userNames.length - 1)]
+      },
+      {
+        id: getRandomInteger(1, 25),
+        avatar: `img/avatar-${getRandomDigits(1, 6)}.svg`,
+        message: commentsMessage[getRandomDigits(0, commentsMessage.length - 1)],
+        name: userNames[getRandomDigits(0, userNames.length - 1)]
+      }
+    ]
   };
-
-  const commentParams = {
-    id: getRandomInteger(1, 25),
-    avatar: `img/avatar-${getRandomDigits(1, 6)}.svg`,
-    message: commentsMessage[getRandomDigits(0, commentsMessage.length - 1)],
-    name: userNames[getRandomDigits(0, userNames.length - 1)]
-  };
-
-  photoParamsArray.push(userPhotoParams);
-  photoParamsArray.push(commentParams);
+  mockPhotos.push(userPhotoParams);
 }
+console.log(mockPhotos);
