@@ -89,4 +89,4 @@ for (let i = 0; i < 15; i++) {
   };
   mockPhotos.push(userPhotoParams);
 }
-console.log(mockPhotos);
+
