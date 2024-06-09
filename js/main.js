@@ -1,2 +1,2 @@
-import { mockPhotos } from './mock-photos-generator.js';
+import { mockPhotos } from './data.js';
 window.console.log (mockPhotos);
