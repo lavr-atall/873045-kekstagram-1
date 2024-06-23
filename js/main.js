@@ -1,2 +1,3 @@
 import { mockPhotos } from './data.js';
-window.console.log (mockPhotos);
+import { renderPicture } from './render-picture.js';
+renderPicture (mockPhotos);
