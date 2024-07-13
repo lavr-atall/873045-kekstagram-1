@@ -14,10 +14,10 @@ const createBigPictureTemplate = (url, description, comments, likes) => {
 
 // Функция для рендеринга большого изображения
 const renderBigPicture = (thumbnailId) => {
-  const photo = mockPhotos.find((photo) => photo.id === thumbnailId);
+  const photoID = mockPhotos.find((photo) => photo.id === thumbnailId);
 
-  if (photo) {
-    const { url, description, comments, likes } = photo;
+  if (photoID) {
+    const { url, description, comments, likes } = photoID;
     createBigPictureTemplate(url, description, comments, likes);
 
     // Генератор комментариев
