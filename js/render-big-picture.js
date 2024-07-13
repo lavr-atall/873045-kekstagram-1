@@ -1,6 +1,5 @@
 //import { renderThumbnails } from './render-picture-thumbnails.js';
 import { mockPhotos } from './data.js';
-console.log(mockPhotos);
 
 const bigPicture = document.querySelector('.big-picture');
 const bigPictureImg = bigPicture.querySelector('img');
