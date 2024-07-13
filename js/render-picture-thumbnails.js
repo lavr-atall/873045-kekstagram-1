@@ -3,7 +3,7 @@ import { mockPhotos } from './data.js';
 const pictureTemplate = document.querySelector('#picture').content;
 const pictureContainer = document.querySelector('.pictures');
 
-const createPictureTemplate = function (id, url, description, likes, comments) {
+const createPictureTemplate = (id, url, description, likes, comments) => {
   const singlePictureTemplate = pictureTemplate.cloneNode(true);
 
   singlePictureTemplate.querySelector('.picture__img').src = url;
@@ -14,7 +14,7 @@ const createPictureTemplate = function (id, url, description, likes, comments) {
   return singlePictureTemplate;
 };
 
-const renderThumbnails = function (userPictures) {
+const renderThumbnails = (userPictures) => {
   for (let i = 0; i < userPictures.length; i++) {
     const { id, url, description, likes, comments } = userPictures[i];
     const userPicture = createPictureTemplate(id, url, description, likes, comments);
