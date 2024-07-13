@@ -1,4 +1,4 @@
-const userNames =
+const USERNAMES =
   [
     'Артём',
     'Кекс',
@@ -7,7 +7,7 @@ const userNames =
     'Лена',
   ];
 
-const commentsMessage =
+const COMMENTMESSAGE =
   [
     'Всё отлично!',
     'В целом всё неплохо. Но не всё.',
@@ -18,7 +18,7 @@ const commentsMessage =
   ];
 
 
-const photoDescriprion =
+const PHOTODESCRIPTION =
   [
     'Закат на берегу океана',
     'Уютный кофейный уголок с книгой',
@@ -27,7 +27,7 @@ const photoDescriprion =
     'Восход солнца в горах'
   ];
 
-import { getRandomDigits, getRandomInteger, createRandomFromRangeGenerator} from './util.js';
+import { getRandomDigits, getRandomInteger, createRandomFromRangeGenerator } from './util.js';
 
 // Генерация id фото и url
 const generatePhotoIdAndUrl = createRandomFromRangeGenerator(1, 25);
@@ -40,7 +40,7 @@ for (let i = 0; i < 15; i++) {
   const userPhotoParams = {
     id: idAndUrl,
     url: `photos/${idAndUrl}.jpg`,
-    description: photoDescriprion[getRandomDigits(0, photoDescriprion.length - 1)],
+    description: PHOTODESCRIPTION[getRandomDigits(0, PHOTODESCRIPTION.length - 1)],
     likes: getRandomDigits(1, 50),
     comments: [],
   };
@@ -51,8 +51,8 @@ for (let i = 0; i < 15; i++) {
     const singleComment = {
       id: getRandomInteger(1, 25),
       avatar: `img/avatar-${getRandomDigits(1, 6)}.svg`,
-      message: commentsMessage[getRandomDigits(0, commentsMessage.length - 1)],
-      name: userNames[getRandomDigits(0, userNames.length - 1)],
+      message: COMMENTMESSAGE[getRandomDigits(0, COMMENTMESSAGE.length - 1)],
+      name: USERNAMES[getRandomDigits(0, USERNAMES.length - 1)],
     };
     userPhotoParams.comments.push(singleComment);
   }
