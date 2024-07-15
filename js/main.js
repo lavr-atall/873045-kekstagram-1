@@ -1,3 +1,3 @@
-import { mockPhotos } from './data.js';
-import { renderPicture } from './render-picture.js';
-renderPicture (mockPhotos);
+import { renderThumbnails } from './render-picture-thumbnails.js';
+import './popup.js';
+window.log (renderThumbnails);
