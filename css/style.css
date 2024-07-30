@@ -1408,3 +1408,30 @@ main {
 .hidden {
   display: none;
 }
+
+.has-danger
+{
+   text-align: center;
+}
+
+.has-danger {
+  display: flex;
+  flex-direction: column;
+  align-content: center;
+  justify-content: center;
+  align-items: center;
+}
+
+
+
+.pristine-error
+{
+  display: flex;
+  background-color: #ff4e4ebd;
+  border-radius: 5px;
+  justify-content: center;
+  height: 30px;
+  align-items: center;
+  width: 450px;
+  margin-top: 10px;;
+}
