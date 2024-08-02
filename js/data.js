@@ -45,7 +45,7 @@ for (let i = 0; i < 15; i++) {
     comments: [],
   };
 
-  const generateCommentsQty = getRandomInteger(0, 5);
+  const generateCommentsQty = getRandomInteger(0, 15);
 
   for (let j = 0; j < generateCommentsQty; j++) {
     const singleComment = {

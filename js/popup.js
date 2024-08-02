@@ -19,8 +19,8 @@ thumbnailContainer.addEventListener('click', (event) => {
   const img = picture.querySelector('.picture__img');
   const thumbnailId = +img.getAttribute('data-thumbnail-id');
 
-  bigPicture.querySelector('.social__comment-count').classList.add('hidden');
-  bigPicture.querySelector('.comments-loader').classList.add('hidden');
+  // bigPicture.querySelector('.social__comment-count').classList.add('hidden');
+  // bigPicture.querySelector('.comments-loader').classList.add('hidden');
 
   renderBigPicture(thumbnailId);
 

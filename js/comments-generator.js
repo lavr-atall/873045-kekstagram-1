@@ -1,4 +1,3 @@
-
 // Генератор комментариев
 const bigPicture = document.querySelector('.big-picture');
 
