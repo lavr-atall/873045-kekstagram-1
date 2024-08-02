@@ -4,8 +4,6 @@ import { renderBigPicture } from './render-big-picture.js';
 const bigPicture = document.querySelector('.big-picture');
 const closeButton = bigPicture.querySelector('#picture-cancel');
 const thumbnailContainer = document.querySelector('.pictures');
-const loadMoreComments = document.querySelector('.social__comments-loader');
-const COMMENTSQUANTITY = 5;
 
 // Обработчик клика по контейнеру миниатюр
 thumbnailContainer.addEventListener('click', (event) => {
