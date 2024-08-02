@@ -1,5 +1,11 @@
 import { isEscapeKey } from './util.js';
 
+const form = document.querySelector('.img-upload__form');
+const pristine = new Pristine(form, {
+  classTo: 'img-upload__field-wrapper',
+  errorTextParent: 'img-upload__field-wrapper',
+});
+
 const fileUpload = document.querySelector('#upload-file');
 const fileUploadCloseButton = document.querySelector('#upload-cancel');
 const fileUploadOverlay = document.querySelector('.img-upload__overlay');
@@ -40,13 +46,7 @@ function onCloseButtonClick() {
 }
 
 //Валидация формы
-const form = document.querySelector('.img-upload__form');
 const MAX_HASHTAG_QUANTITY = 5;
-
-const pristine = new Pristine(form, {
-  classTo: 'img-upload__field-wrapper',
-  errorTextParent: 'img-upload__field-wrapper',
-});
 
 const getHashtagsArray = (value) => value.trim().toLowerCase().split(' ').filter((hashtag) => hashtag.trim() !== '');
 
@@ -74,14 +74,9 @@ const validateHashtags = (value) => {
 
 pristine.addValidator(hashtagField, validateHashtags, 'Форма не валидна');
 
-form.addEventListener('submit', (evt) => {
+fileUpload.addEventListener('submit', (evt) => {
   evt.preventDefault();
-  const isValid = pristine.validate();
-  if (isValid) {
-    console.log('Форма валидна!');
-  } else {
-    console.log('Форма не валидна!');
+  if (pristine.validate()) {
+    fileUpload.submit();
   }
 });
-
-
