@@ -4,6 +4,8 @@ import { renderBigPicture } from './render-big-picture.js';
 const bigPicture = document.querySelector('.big-picture');
 const closeButton = bigPicture.querySelector('#picture-cancel');
 const thumbnailContainer = document.querySelector('.pictures');
+const loadMoreComments = document.querySelector('.social__comments-loader');
+const COMMENTSQUANTITY = 5;
 
 // Обработчик клика по контейнеру миниатюр
 thumbnailContainer.addEventListener('click', (event) => {
@@ -19,8 +21,8 @@ thumbnailContainer.addEventListener('click', (event) => {
   const img = picture.querySelector('.picture__img');
   const thumbnailId = +img.getAttribute('data-thumbnail-id');
 
-  bigPicture.querySelector('.social__comment-count').classList.add('hidden');
-  bigPicture.querySelector('.comments-loader').classList.add('hidden');
+  // bigPicture.querySelector('.social__comment-count').classList.add('hidden');
+  // bigPicture.querySelector('.comments-loader').classList.add('hidden');
 
   renderBigPicture(thumbnailId);
 

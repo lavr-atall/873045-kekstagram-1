@@ -3,9 +3,8 @@ import { isEscapeKey } from './util.js';
 const fileUpload = document.querySelector('#upload-file');
 const fileUploadCloseButton = document.querySelector('#upload-cancel');
 const fileUploadOverlay = document.querySelector('.img-upload__overlay');
-//const hashtagField = fileUploadOverlay.querySelector('.text__hashtags');
-const hashtagField = fileUploadOverlay.querySelector('.text__description');
-//const commentField = fileUploadOverlay.querySelector('.text__description');
+const hashtagField = fileUploadOverlay.querySelector('.text__hashtags');
+const commentField = fileUploadOverlay.querySelector('.text__description');
 
 //Открытие модального окна загрузки
 fileUpload.addEventListener('change', () => {
