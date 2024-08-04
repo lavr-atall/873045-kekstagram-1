@@ -1,4 +1,5 @@
 import { isEscapeKey } from './util.js';
+import './image-filters.js';
 
 const form = document.querySelector('.img-upload__form');
 const pristine = new Pristine(form, {
