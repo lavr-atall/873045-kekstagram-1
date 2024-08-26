@@ -1,5 +1,3 @@
-import { mockPhotos } from './data.js';
-
 const pictureTemplate = document.querySelector('#picture').content;
 const pictureContainer = document.querySelector('.pictures');
 
@@ -22,7 +20,4 @@ const renderThumbnails = (userPictures) => {
   }
 };
 
-renderThumbnails(mockPhotos);
-
 export { renderThumbnails };
-

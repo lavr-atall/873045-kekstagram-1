@@ -1,6 +1,5 @@
-import { mockPhotos } from './data.js';
 import { bigPictureCommentsGenerator } from './comments-generator.js';
-
+import { mockPhotos } from './data.js';
 const bigPicture = document.querySelector('.big-picture');
 const bigPictureImg = bigPicture.querySelector('img');
 

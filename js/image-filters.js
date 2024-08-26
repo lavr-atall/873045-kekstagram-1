@@ -37,6 +37,8 @@ const updateSlider = (effect) => {
   sliderElement.noUiSlider.set(effect.max);
 };
 
+effectLevel.classList.add('hidden');
+
 effectsSwitcherList.forEach((effectRadio) => {
   effectRadio.addEventListener('click', () => {
     imagePreview.className = ''; // Сброс всех классов
