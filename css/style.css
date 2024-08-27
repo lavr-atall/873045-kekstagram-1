@@ -1447,20 +1447,16 @@ main {
   top: 0;
   left: 0;
   z-index: 2;
-
   -webkit-box-sizing: border-box;
   box-sizing: border-box;
-
   width: 100%;
   height: 100%;
-
   padding-top: 60px;
   overflow: auto;
   background-color: rgba(0, 0, 0, 0.8);
 }
 
 .data-loading__error_text {
-
   flex-wrap: wrap;
   display: flex;
   background-color: #ff4e4ebd;
@@ -1470,15 +1466,6 @@ main {
   align-items: center;
   width: 450px;
   padding: 20px;
-}
-
-.data-loading__error_button {
-  color: #000000;
-  font-weight: 800;
-  background-color: #fff;
-  padding: 10px;
-  border-style: none;
-  border-radius: 5px;
 }
 
 .hidden {

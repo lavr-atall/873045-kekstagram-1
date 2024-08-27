@@ -16,7 +16,7 @@ fetch('https://28.javascript.htmlacademy.pro/kekstagram/data')
   });
 
 // Отправка формы
-const successMessageTemplate = document.querySelector('#sucess');
+const successMessageTemplate = document.querySelector('#success');
 const errorMessageTemplate = document.querySelector('#error');
 
 document.querySelector('#upload-submit').addEventListener('click', (event) => {
@@ -37,43 +37,42 @@ document.querySelector('#upload-submit').addEventListener('click', (event) => {
     .then((data) => {
       const successMessage = successMessageTemplate.content.cloneNode(true);
       document.querySelector('body').append(successMessage);
-      const successButton = document.querySelector('.success__button');
-      const currentSuccessMessage = document.querySelector('.success');
 
-      successButton.addEventListener('click', () => {
-        if (currentSuccessMessage) {
-          currentSuccessMessage.remove();
-          form.reset();
-          closeFileUploadModal();
+      document.body.addEventListener('click', (evt) => {
+        const currentsuccessMessage = document.querySelector('.success');
+        const successInner = document.querySelector('.success__inner');
+
+        if (currentsuccessMessage) {
+          if (evt.target.closest('.success__button')) {
+            currentsuccessMessage.remove();
+            closeFileUploadModal();
+          } else if (!evt.target.closest('.success__inner')) {
+            currentsuccessMessage.remove();
+            closeFileUploadModal();
+          }
         }
       });
-
-      document.addEventListener('click', () => {
-        if (currentSuccessMessage) {
-          currentSuccessMessage.remove();
-          form.reset();
-          closeFileUploadModal();
-        }
-      });
-
     })
+
+
     .catch((error) => {
       const errorMessage = errorMessageTemplate.content.cloneNode(true);
       document.querySelector('body').append(errorMessage);
-      const errorButton = document.querySelector('.error__button');
-      const currentErrorMessage = document.querySelector('.error');
 
-      errorButton.addEventListener('click', () => {
+      document.body.addEventListener('click', (evt) => {
+        const currentErrorMessage = document.querySelector('.error');
+        const errorInner = document.querySelector('.error__inner');
+
         if (currentErrorMessage) {
-          closeFileUploadModal();
-          currentErrorMessage.remove();
+          if (evt.target.closest('.error__button')) {
+            currentErrorMessage.remove();
+          } else if (!evt.target.closest('.error__inner')) {
+            currentErrorMessage.remove();
+          }
         }
       });
 
-      document.addEventListener('click', () => {
-        if (currentErrorMessage) {
-          currentErrorMessage.remove();
-        }
-      });
     });
 });
+
+
