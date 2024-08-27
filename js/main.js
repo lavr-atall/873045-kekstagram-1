@@ -19,8 +19,8 @@ fetch('https://28.javascript.htmlacademy.pro/kekstagram/data')
 const successMessageTemplate = document.querySelector('#success');
 const errorMessageTemplate = document.querySelector('#error');
 
-document.querySelector('#upload-submit').addEventListener('click', (event) => {
-  event.preventDefault();
+document.querySelector('#upload-submit').addEventListener('click', (evt) => {
+  evt.preventDefault();
   const form = document.querySelector('#upload-select-image');
   const formData = new FormData(form);
 
