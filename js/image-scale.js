@@ -20,7 +20,6 @@ zoomIn.onclick = function() {
     zoomValue += MIN_SCALE_STEP;
     updateZoom();
   }
-
 };
 
 zoomOut.onclick = function() {
@@ -28,7 +27,6 @@ zoomOut.onclick = function() {
     zoomValue -= MIN_SCALE_STEP;
     updateZoom();
   }
-
 };
 
 updateZoom();

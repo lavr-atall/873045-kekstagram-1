@@ -1436,7 +1436,7 @@ main {
   height: 30px;
   align-items: center;
   width: 450px;
-  margin-top: 10px;
+  margin-bottom: 10px;
 }
 
 .data-loading__error {

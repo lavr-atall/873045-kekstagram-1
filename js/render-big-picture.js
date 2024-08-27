@@ -1,8 +1,17 @@
 import { bigPictureCommentsGenerator } from './comments-generator.js';
-import { mockPhotos } from './data.js';
 const bigPicture = document.querySelector('.big-picture');
 const bigPictureImg = bigPicture.querySelector('img');
+const closeButton = bigPicture.querySelector('#picture-cancel');
 
+const openModal = () => {
+  bigPicture.classList.remove('hidden');
+  document.body.classList.add('modal-open');
+};
+const closeModal = () => {
+  bigPicture.classList.add('hidden');
+  document.body.classList.remove('modal-open');
+
+};
 // Функция для создания шаблона большого изображения
 const createBigPictureTemplate = (url, description, comments, likes) => {
   bigPictureImg.src = url;
@@ -13,16 +22,17 @@ const createBigPictureTemplate = (url, description, comments, likes) => {
 };
 
 // Функция для рендеринга большого изображения
-const renderBigPicture = (thumbnailId) => {
-  const photoID = mockPhotos.find((photo) => photo.id === thumbnailId);
+const renderBigPicture = ({ url, description, comments, likes }) => {
 
-  if (photoID) {
-    const { url, description, comments, likes } = photoID;
-    createBigPictureTemplate(url, description, comments, likes);
+  createBigPictureTemplate(url, description, comments, likes);
 
-    // Вызов функции генерации комментариев
-    bigPictureCommentsGenerator(comments);
-  }
+  // Вызов функции генерации комментариев
+  bigPictureCommentsGenerator(comments);
+  openModal();
 };
 
-export { renderBigPicture };
+closeButton.addEventListener('click', () => {
+  closeModal();
+});
+
+export { renderBigPicture, closeModal };

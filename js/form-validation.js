@@ -22,7 +22,7 @@ fileUpload.addEventListener('change', () => {
 });
 
 //Закрытие модального окна загрузки
-function closeFileUploadModal() {
+const closeFileUploadModal = () => {
   fileUploadOverlay.classList.add('hidden');
   document.body.classList.remove('modal-open');
   document.removeEventListener('keydown', onDocumentKeydown);
@@ -30,21 +30,25 @@ function closeFileUploadModal() {
   fileUpload.value = '';
   hashtagField.value = '';
   commentField.value = '';
+  document.querySelector('.img-upload__preview img').style.filter = '';
+  document.querySelector('.img-upload__preview img').classList='';
+  document.querySelector('.scale__control--value').value = `100%`;
+  document.querySelector('.img-upload__preview img').style.transform = `scale(1)`;
   pristine.reset();
-}
+};
 
-function onDocumentKeydown(evt) {
+const onDocumentKeydown = (evt) => {
   if (isEscapeKey(evt)) {
     if (document.activeElement !== hashtagField && document.activeElement !== commentField) {
       evt.preventDefault();
       closeFileUploadModal();
     }
   }
-}
+};
 
-function onCloseButtonClick() {
+const onCloseButtonClick = () => {
   closeFileUploadModal();
-}
+};
 
 //Валидация формы
 const MAX_HASHTAG_QUANTITY = 5;
@@ -81,3 +85,4 @@ fileUpload.addEventListener('submit', (evt) => {
     fileUpload.submit();
   }
 });
+export {closeFileUploadModal};
