@@ -1,5 +1,5 @@
 import { bigPictureCommentsGenerator } from './comments-generator.js';
-import { setEscapeControl,  removeEscapeControl } from './keydown-control.js';
+import { setEscapeControl, removeEscapeControl } from './keydown-control.js';
 const bigPicture = document.querySelector('.big-picture');
 const bigPictureImg = bigPicture.querySelector('img');
 const closeButton = bigPicture.querySelector('#picture-cancel');
@@ -13,7 +13,7 @@ const closeModal = () => {
 const openModal = () => {
   bigPicture.classList.remove('hidden');
   document.body.classList.add('modal-open');
-  setEscapeControl(closeModal )
+  setEscapeControl(closeModal);
 };
 
 

@@ -4,11 +4,11 @@ const hashtagField = fileUploadOverlay.querySelector('.text__hashtags');
 const commentField = fileUploadOverlay.querySelector('.text__description');
 
 const pristine = new Pristine(form, {
-    classTo: 'img-upload__field-wrapper',
-    errorTextParent: 'img-upload__field-wrapper',
-  });
+  classTo: 'img-upload__field-wrapper',
+  errorTextParent: 'img-upload__field-wrapper',
+});
 
-  //Валидация формы
+//Валидация формы
 const MAX_HASHTAG_QUANTITY = 5;
 
 const getHashtagsArray = (value) => value.trim().toLowerCase().split(' ').filter((hashtag) => hashtag.trim() !== '');
@@ -40,5 +40,5 @@ pristine.addValidator(hashtagField, validateHashtags, 'Форма не вали�
 export const isValid = () => pristine.validate();
 
 export const reset = () => {
-    pristine.reset();
-}
+  pristine.reset();
+};
