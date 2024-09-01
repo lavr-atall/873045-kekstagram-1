@@ -3,11 +3,10 @@ import { isEscapeKey } from './util.js';
 const stack = [];
 let listener = null;
 
-
 const onDocumentKeydown = (evt) => {
   if (isEscapeKey(evt)) {
 
-    let lastIndex = stack.length - 1;
+    const lastIndex = stack.length - 1;
     if(stack[lastIndex].condition && !stack[lastIndex].condition()){
       return;
     }
@@ -18,7 +17,7 @@ const onDocumentKeydown = (evt) => {
       listener = null;
     }
   }
-}
+};
 
 export const setEscapeControl = (closeFunction, condition = null) => {
   stack.push({
@@ -30,11 +29,10 @@ export const setEscapeControl = (closeFunction, condition = null) => {
   }
 };
 
-
 export const removeEscapeControl = () => {
   stack.length = stack.length - 1;
   if (!stack.length) {
     document.removeEventListener('keydown', onDocumentKeydown);
     listener = null;
   }
-}
+};

@@ -1,7 +1,6 @@
 const form = document.querySelector('.img-upload__form');
 const fileUploadOverlay = document.querySelector('.img-upload__overlay');
 const hashtagField = fileUploadOverlay.querySelector('.text__hashtags');
-const commentField = fileUploadOverlay.querySelector('.text__description');
 
 const pristine = new Pristine(form, {
   classTo: 'img-upload__field-wrapper',

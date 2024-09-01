@@ -11,8 +11,6 @@ const DEFAULT_SCALE = 100;
 
 let zoomValue = DEFAULT_SCALE;
 
-
-
 function updateZoom() {
   scaleControlOutput.value = `${zoomValue }%`;
   imagePreview.style.transform = `scale(${ zoomValue / 100 })`;
@@ -34,8 +32,8 @@ zoomOut.onclick = function() {
 
 const reset = () => {
   zoomValue = DEFAULT_SCALE;
-  updateZoom()
-}
+  updateZoom();
+};
 
 reset();
 

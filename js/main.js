@@ -3,7 +3,7 @@ import {closeFileUploadModal} from'./form-validation.js';
 //import './form-validation.js';
 // import { updateZoom } from './image-scale.js';
 import { closeModal } from './render-big-picture.js';
-import { DOWNLOAD_SERVER_URL } from './const.js'
+import { DOWNLOAD_SERVER_URL } from './const.js';
 
 
 fetch(DOWNLOAD_SERVER_URL)
@@ -16,6 +16,3 @@ fetch(DOWNLOAD_SERVER_URL)
     document.querySelector('.data-loading__error').classList.remove('hidden');
     return null;
   });
-
-
-

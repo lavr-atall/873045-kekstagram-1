@@ -1,4 +1,4 @@
-import { EFFECTS, EFFECTS_SETTING } from "./const.js";
+import { EFFECTS, EFFECTS_SETTING } from './const.js';
 
 const radiosGroup = document.querySelector('.img-upload__effects');
 const effectLevel = document.querySelector('.img-upload__effect-level');
@@ -30,27 +30,26 @@ const updateSlider = (effect) => {
   });
 };
 
-
 const renderSlider = () => {
   if (document.querySelector('.effects__radio:checked').value === EFFECTS.DEFAULT) {
     effectLevel.classList.add('hidden');
   } else {
     effectLevel.classList.remove('hidden');
   }
-}
+};
 
 radiosGroup.addEventListener('change', (evt) => {
   console.log(evt.target.value);
   updateSlider(EFFECTS_SETTING[evt.target.value]);
-  renderSlider()
-})
+  renderSlider();
+});
 
 // Обновление фильтра при изменении значения слайдера
 sliderElement.noUiSlider.on('update', () => {
-  let value = sliderElement.noUiSlider.get()
+  const value = sliderElement.noUiSlider.get();
   valueEffect.value = value;
   if (document.querySelector('.effects__radio:checked').value === EFFECTS.DEFAULT) {
-    imagePreview.style.filter = ''
+    imagePreview.style.filter = '';
   }else{
     imagePreview.style.filter = `${chosenEffect.filter}(${value}${chosenEffect.units})`;
   }
@@ -62,7 +61,7 @@ const reset = () => {
   chosenEffect = DEFAULT_EFFECT;
   effectLevel.classList.add('hidden');
   document.querySelector(`.effects__radio[value=${EFFECTS.DEFAULT}]`).checked = true;
-}
+};
 
 reset();
 
