@@ -1,17 +1,22 @@
 import { bigPictureCommentsGenerator } from './comments-generator.js';
+import { setEscapeControl,  removeEscapeControl } from './keydown-control.js';
 const bigPicture = document.querySelector('.big-picture');
 const bigPictureImg = bigPicture.querySelector('img');
 const closeButton = bigPicture.querySelector('#picture-cancel');
 
-const openModal = () => {
-  bigPicture.classList.remove('hidden');
-  document.body.classList.add('modal-open');
-};
 const closeModal = () => {
   bigPicture.classList.add('hidden');
   document.body.classList.remove('modal-open');
 
 };
+
+const openModal = () => {
+  bigPicture.classList.remove('hidden');
+  document.body.classList.add('modal-open');
+  setEscapeControl(closeModal )
+};
+
+
 // Функция для создания шаблона большого изображения
 const createBigPictureTemplate = (url, description, comments, likes) => {
   bigPictureImg.src = url;
@@ -33,6 +38,7 @@ const renderBigPicture = ({ url, description, comments, likes }) => {
 
 closeButton.addEventListener('click', () => {
   closeModal();
+  removeEscapeControl();
 });
 
 export { renderBigPicture, closeModal };
