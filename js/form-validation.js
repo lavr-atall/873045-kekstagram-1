@@ -1,12 +1,12 @@
-import { isEscapeKey } from './util.js';
+//import { isEscapeKey } from './util.js';
 import './image-filters.js';
 import { isValid } from './validation.js';
 import { reset as resetValidation } from './validation.js';
 import { showSuccessPopup, showErrorPopup } from './popups.js';
 import { reset as resetZoom } from './image-scale.js';
-import {reset as resetEffect} from './image-filters.js';
+import { reset as resetEffect} from './image-filters.js';
 import { removeEscapeControl, setEscapeControl } from './keydown-control.js';
-import { UPLOAD_SERVER_URL } from './const.js'
+import { UPLOAD_SERVER_URL, FILE_TYPES } from './const.js'
 
 const form = document.querySelector('.img-upload__form');
 const fileUpload = document.querySelector('#upload-file');
@@ -35,7 +35,6 @@ fileUpload.addEventListener('change', () => {
   fileUploadCloseButton.addEventListener('click', onCloseButtonClick);
   setEscapeControl(closeFileUploadModal, canBeClosed);
 });
-
 
 const onCloseButtonClick = (evt) => {
   evt.preventDefault();
@@ -66,4 +65,24 @@ form.addEventListener('submit', (evt) => {
       });
   }
 });
+
+const fileChooser = document.querySelector('#upload-select-image input[type=file]');
+const preview = document.querySelector('.img-upload__preview img');
+const effectsPreview = document.querySelectorAll('.effects__preview');
+
+fileChooser.addEventListener('change', () => {
+  const file = fileChooser.files[0];
+  const fileName = file.name.toLowerCase();
+
+  const matches = FILE_TYPES.some((it) => fileName.endsWith(it));
+
+  if (matches) {
+    const loadedFileURL = URL.createObjectURL(file);
+    preview.src = loadedFileURL;
+    effectsPreview.forEach((element) => {
+      element.style.backgroundImage = `url(${loadedFileURL})`;
+    });
+  }
+});
+
 export { closeFileUploadModal };

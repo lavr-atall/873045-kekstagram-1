@@ -19,3 +19,12 @@ export const EFFECTS_SETTING = {
 
 export const DOWNLOAD_SERVER_URL = 'https://28.javascript.htmlacademy.pro/kekstagram/data';
 export const UPLOAD_SERVER_URL = 'https://28.javascript.htmlacademy.pro/kekstagram';
+
+export const RENDER_DELAY = 500;
+
+export const REQUIRED_SIMBOLS = /^#[а-яА-ЯёЁa-zA-Z0-9]{1,19}$/i;
+export const MAX_HASHTAG_QUANTITY = 5;
+
+export const FILE_TYPES = ['jpg', 'jpeg', 'png'];
+
+export const RANDOM_SORTED_COUNT = 10;

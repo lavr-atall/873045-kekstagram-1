@@ -8,7 +8,7 @@ const pristine = new Pristine(form, {
 });
 
 //Валидация формы
-const MAX_HASHTAG_QUANTITY = 5;
+import {MAX_HASHTAG_QUANTITY, REQUIRED_SIMBOLS} from './const.js';
 
 const getHashtagsArray = (value) => value.trim().toLowerCase().split(' ').filter((hashtag) => hashtag.trim() !== '');
 
@@ -24,7 +24,7 @@ const validateMaxNumberHashtags = (value) => {
 };
 
 const validateHashtags = (value) => {
-  const REQUIRED_SIMBOLS = /^#[а-яА-ЯёЁa-zA-Z0-9]{1,19}$/i;
+
   const hashtags = getHashtagsArray(value);
   for (const hashtag of hashtags) {
     if (!REQUIRED_SIMBOLS.test(hashtag)) {

@@ -39,7 +39,6 @@ const renderSlider = () => {
 };
 
 radiosGroup.addEventListener('change', (evt) => {
-  console.log(evt.target.value);
   updateSlider(EFFECTS_SETTING[evt.target.value]);
   renderSlider();
 });

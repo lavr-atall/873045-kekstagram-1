@@ -28,7 +28,6 @@ const renderThumbnails = (userPictures) => {
   }
 };
 
-
 thumbnailContainer.addEventListener('click', (evt) => {
   const card = evt.target.closest('.picture');
   if (card) {
