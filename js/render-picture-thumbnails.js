@@ -1,7 +1,11 @@
-import { mockPhotos } from './data.js';
 
-const pictureTemplate = document.querySelector('#picture').content;
+import { renderBigPicture } from './render-big-picture.js';
+
+const pictureTemplate = document.querySelector('#picture').content.querySelector('.picture');
 const pictureContainer = document.querySelector('.pictures');
+const thumbnailContainer = document.querySelector('.pictures');
+
+const localData = [];
 
 const createPictureTemplate = (id, url, description, likes, comments) => {
   const singlePictureTemplate = pictureTemplate.cloneNode(true);
@@ -10,11 +14,13 @@ const createPictureTemplate = (id, url, description, likes, comments) => {
   singlePictureTemplate.querySelector('.picture__img').alt = description;
   singlePictureTemplate.querySelector('.picture__likes').textContent = likes;
   singlePictureTemplate.querySelector('.picture__comments').textContent = comments.length;
-  singlePictureTemplate.querySelector('.picture__img').dataset.thumbnailId = id;
+  singlePictureTemplate.dataset.thumbnailId = id;
   return singlePictureTemplate;
 };
 
 const renderThumbnails = (userPictures) => {
+  localData.length = 0;
+  localData.push(...userPictures.slice());
   for (let i = 0; i < userPictures.length; i++) {
     const { id, url, description, likes, comments } = userPictures[i];
     const userPicture = createPictureTemplate(id, url, description, likes, comments);
@@ -22,7 +28,12 @@ const renderThumbnails = (userPictures) => {
   }
 };
 
-renderThumbnails(mockPhotos);
+thumbnailContainer.addEventListener('click', (evt) => {
+  const card = evt.target.closest('.picture');
+  if (card) {
+    const photoData = localData.find((item) => item.id === Number(card.dataset.thumbnailId));
+    renderBigPicture(photoData);
+  }
+});
 
 export { renderThumbnails };
-
