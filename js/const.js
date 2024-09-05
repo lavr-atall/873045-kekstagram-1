@@ -1,4 +1,3 @@
-
 export const EFFECTS = {
   DEFAULT: 'none',
   CHROME: 'chrome',
@@ -17,7 +16,7 @@ export const EFFECTS_SETTING = {
   [EFFECTS.HEAT]: { min: 1, max: 3, step: 0.1, filter: 'brightness', units: '' }
 };
 
-export const DOWNLOAD_SERVER_URL = 'https://28.javascript.htmlacademy.pro/kekstagram/data';
+export const DOWNLOAD_SERVER_URL = 'https://28.javascript.htmlacademy.pro/kekstagram/data1';
 export const UPLOAD_SERVER_URL = 'https://28.javascript.htmlacademy.pro/kekstagram';
 
 export const RENDER_DELAY = 500;

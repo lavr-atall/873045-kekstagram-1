@@ -9,6 +9,14 @@ getData()
     initFilters(serverData);
   })
   .catch(() => {
-    document.querySelector('.data-loading__error').classList.remove('hidden');
+    const errorPopup = document.querySelector('.data-loading__error');
+
+    if (errorPopup) {
+      errorPopup.classList.remove('hidden');
+      setTimeout(() => {
+        errorPopup.classList.add('hidden');
+      }, 3000);
+    }
     return null;
   });
+

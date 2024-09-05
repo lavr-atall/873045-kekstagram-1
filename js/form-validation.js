@@ -18,7 +18,6 @@ const fileChooser = form.querySelector('#upload-select-image input[type=file]');
 const preview = form.querySelector('.img-upload__preview img');
 const effectsPreview = form.querySelectorAll('.effects__preview');
 
-//Закрытие модального окна загрузки
 const closeFileUploadModal = () => {
   fileUploadOverlay.classList.add('hidden');
   document.body.classList.remove('modal-open');
@@ -37,7 +36,6 @@ function onCloseButtonClick (evt) {
 
 const canBeClosed = () => document.activeElement !== hashtagField && document.activeElement !== commentField;
 
-//Открытие модального окна загрузки
 fileUpload.addEventListener('change', () => {
   fileUploadOverlay.classList.remove('hidden');
   document.body.classList.add('modal-open');

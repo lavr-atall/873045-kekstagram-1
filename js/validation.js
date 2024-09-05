@@ -8,7 +8,6 @@ const pristine = new Pristine(form, {
   errorTextParent: 'img-upload__field-wrapper',
 });
 
-//Валидация формы
 const getHashtagsArray = (value) => value.trim().toLowerCase().split(' ').filter((hashtag) => hashtag.trim() !== '');
 
 const validateUniqueHashtags = (value) => {
