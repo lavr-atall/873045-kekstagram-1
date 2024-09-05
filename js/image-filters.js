@@ -43,7 +43,6 @@ radiosGroup.addEventListener('change', (evt) => {
   renderSlider();
 });
 
-// Обновление фильтра при изменении значения слайдера
 sliderElement.noUiSlider.on('update', () => {
   const value = sliderElement.noUiSlider.get();
   valueEffect.value = value;

@@ -7,7 +7,6 @@ const closeButton = bigPicture.querySelector('#picture-cancel');
 const closeModal = () => {
   bigPicture.classList.add('hidden');
   document.body.classList.remove('modal-open');
-
 };
 
 const openModal = () => {
@@ -16,8 +15,6 @@ const openModal = () => {
   setEscapeControl(closeModal);
 };
 
-
-// Функция для создания шаблона большого изображения
 const createBigPictureTemplate = (url, description, comments, likes) => {
   bigPictureImg.src = url;
   bigPictureImg.alt = description;
@@ -26,12 +23,9 @@ const createBigPictureTemplate = (url, description, comments, likes) => {
   bigPicture.querySelector('.likes-count').textContent = likes;
 };
 
-// Функция для рендеринга большого изображения
 const renderBigPicture = ({ url, description, comments, likes }) => {
-
   createBigPictureTemplate(url, description, comments, likes);
 
-  // Вызов функции генерации комментариев
   bigPictureCommentsGenerator(comments);
   openModal();
 };

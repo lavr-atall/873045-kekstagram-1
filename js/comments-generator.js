@@ -1,5 +1,3 @@
-// Генератор комментариев
-
 const bigPicture = document.querySelector('.big-picture');
 const commentsContainer = bigPicture.querySelector('.social__comments');
 const singleCommentTemplate = commentsContainer.querySelector('.social__comment');

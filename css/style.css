@@ -1440,32 +1440,21 @@ main {
 }
 
 .data-loading__error {
-  display: flex;
   position: fixed;
+  width: 100%;
   align-items: center;
   justify-content: center;
-  top: 0;
+  bottom: 0;
   left: 0;
   z-index: 2;
-  -webkit-box-sizing: border-box;
-  box-sizing: border-box;
-  width: 100%;
-  height: 100%;
-  padding-top: 60px;
-  overflow: auto;
-  background-color: rgba(0, 0, 0, 0.8);
-}
-
-.data-loading__error_text {
   flex-wrap: wrap;
   display: flex;
   background-color: #ff4e4ebd;
-  border-radius: 5px;
   justify-content: center;
   text-transform: none;
   align-items: center;
-  width: 450px;
-  padding: 20px;
+  padding: 10px;
+  gap: 20px;
 }
 
 .hidden {
