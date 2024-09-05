@@ -5,7 +5,6 @@ let listener = null;
 
 const onDocumentKeydown = (evt) => {
   if (isEscapeKey(evt)) {
-
     const lastIndex = stack.length - 1;
     if(stack[lastIndex].condition && !stack[lastIndex].condition()){
       return;

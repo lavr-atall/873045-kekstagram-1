@@ -16,7 +16,6 @@ const openModal = () => {
   setEscapeControl(closeModal);
 };
 
-
 // Функция для создания шаблона большого изображения
 const createBigPictureTemplate = (url, description, comments, likes) => {
   bigPictureImg.src = url;
@@ -28,7 +27,6 @@ const createBigPictureTemplate = (url, description, comments, likes) => {
 
 // Функция для рендеринга большого изображения
 const renderBigPicture = ({ url, description, comments, likes }) => {
-
   createBigPictureTemplate(url, description, comments, likes);
 
   // Вызов функции генерации комментариев

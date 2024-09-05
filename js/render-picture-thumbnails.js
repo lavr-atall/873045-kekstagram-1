@@ -2,7 +2,6 @@
 import { renderBigPicture } from './render-big-picture.js';
 
 const pictureTemplate = document.querySelector('#picture').content.querySelector('.picture');
-const pictureContainer = document.querySelector('.pictures');
 const thumbnailContainer = document.querySelector('.pictures');
 
 const localData = [];
@@ -18,13 +17,20 @@ const createPictureTemplate = (id, url, description, likes, comments) => {
   return singlePictureTemplate;
 };
 
+const clear = () => {
+  document.querySelectorAll('.picture').forEach((item) => {
+    item.remove();
+  });
+};
+
 const renderThumbnails = (userPictures) => {
   localData.length = 0;
   localData.push(...userPictures.slice());
+  clear();
   for (let i = 0; i < userPictures.length; i++) {
     const { id, url, description, likes, comments } = userPictures[i];
     const userPicture = createPictureTemplate(id, url, description, likes, comments);
-    pictureContainer.append(userPicture);
+    thumbnailContainer.append(userPicture);
   }
 };
 

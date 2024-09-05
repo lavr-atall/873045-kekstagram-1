@@ -25,6 +25,12 @@ export const RENDER_DELAY = 500;
 export const REQUIRED_SIMBOLS = /^#[а-яА-ЯёЁa-zA-Z0-9]{1,19}$/i;
 export const MAX_HASHTAG_QUANTITY = 5;
 
-export const FILE_TYPES = ['jpg', 'jpeg', 'png'];
+export const FILE_TYPES = ['jpg', 'jpeg', 'png', 'gif'];
 
 export const RANDOM_SORTED_COUNT = 10;
+
+export const FILTERS = {
+  DEFAULT: 'filter-default',
+  RANDOM: 'filter-random',
+  DISCUSSED: 'filter-discussed'
+};

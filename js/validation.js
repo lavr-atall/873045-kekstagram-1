@@ -1,3 +1,4 @@
+import {MAX_HASHTAG_QUANTITY, REQUIRED_SIMBOLS} from './const.js';
 const form = document.querySelector('.img-upload__form');
 const fileUploadOverlay = document.querySelector('.img-upload__overlay');
 const hashtagField = fileUploadOverlay.querySelector('.text__hashtags');
@@ -8,8 +9,6 @@ const pristine = new Pristine(form, {
 });
 
 //Валидация формы
-import {MAX_HASHTAG_QUANTITY, REQUIRED_SIMBOLS} from './const.js';
-
 const getHashtagsArray = (value) => value.trim().toLowerCase().split(' ').filter((hashtag) => hashtag.trim() !== '');
 
 const validateUniqueHashtags = (value) => {

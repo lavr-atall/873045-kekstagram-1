@@ -1,19 +1,22 @@
-//import { isEscapeKey } from './util.js';
 import './image-filters.js';
 import { isValid } from './validation.js';
 import { reset as resetValidation } from './validation.js';
 import { showSuccessPopup, showErrorPopup } from './popups.js';
 import { reset as resetZoom } from './image-scale.js';
-import { reset as resetEffect} from './image-filters.js';
+import { reset as resetEffect } from './image-filters.js';
 import { removeEscapeControl, setEscapeControl } from './keydown-control.js';
-import { UPLOAD_SERVER_URL, FILE_TYPES } from './const.js'
+import { FILE_TYPES } from './const.js';
+import { sendData } from './api.js';
 
 const form = document.querySelector('.img-upload__form');
-const fileUpload = document.querySelector('#upload-file');
-const fileUploadCloseButton = document.querySelector('#upload-cancel');
-const fileUploadOverlay = document.querySelector('.img-upload__overlay');
-const hashtagField = fileUploadOverlay.querySelector('.text__hashtags');
-const commentField = fileUploadOverlay.querySelector('.text__description');
+const fileUpload = form.querySelector('#upload-file');
+const fileUploadCloseButton = form.querySelector('#upload-cancel');
+const fileUploadOverlay = form.querySelector('.img-upload__overlay');
+const hashtagField = form.querySelector('.text__hashtags');
+const commentField = form.querySelector('.text__description');
+const fileChooser = form.querySelector('#upload-select-image input[type=file]');
+const preview = form.querySelector('.img-upload__preview img');
+const effectsPreview = form.querySelectorAll('.effects__preview');
 
 //Закрытие модального окна загрузки
 const closeFileUploadModal = () => {
@@ -26,6 +29,12 @@ const closeFileUploadModal = () => {
   resetValidation();
 };
 
+function onCloseButtonClick (evt) {
+  evt.preventDefault();
+  closeFileUploadModal();
+  removeEscapeControl();
+}
+
 const canBeClosed = () => document.activeElement !== hashtagField && document.activeElement !== commentField;
 
 //Открытие модального окна загрузки
@@ -36,39 +45,23 @@ fileUpload.addEventListener('change', () => {
   setEscapeControl(closeFileUploadModal, canBeClosed);
 });
 
-const onCloseButtonClick = (evt) => {
-  evt.preventDefault();
-  closeFileUploadModal();
-  removeEscapeControl();
-};
-
 form.addEventListener('submit', (evt) => {
   evt.preventDefault();
   if (isValid()) {
-
-    fetch(UPLOAD_SERVER_URL, {
-      method: 'POST',
-      body: new FormData(form)
-    })
+    sendData(new FormData(form))
       .then((response) => {
         if (!response.ok) {
           throw new Error(`HTTP error! status: ${response.status}`);
         }
-
         closeFileUploadModal();
         removeEscapeControl();
         showSuccessPopup();
       })
-
-      .catch((error) => {
+      .catch(() => {
         showErrorPopup();
       });
   }
 });
-
-const fileChooser = document.querySelector('#upload-select-image input[type=file]');
-const preview = document.querySelector('.img-upload__preview img');
-const effectsPreview = document.querySelectorAll('.effects__preview');
 
 fileChooser.addEventListener('change', () => {
   const file = fileChooser.files[0];
